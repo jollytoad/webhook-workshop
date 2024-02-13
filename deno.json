@@ -1,0 +1,18 @@
+{
+  "tasks": {
+    "start": "deno run --allow-read --allow-net --watch scripts/dev.ts",
+    "deploy": "deno run --allow-read --allow-write --allow-env --allow-net --allow-run --allow-sys --quiet https://deno.land/x/deploy/deployctl.ts deploy",
+    "check": "deno fmt && deno lint && deno check **/*.ts",
+    "lock": "rm -f deno.lock && deno check main.ts scripts/dev.ts"
+  },
+  "imports": {
+    "$std/": "https://deno.land/std@0.215.0/",
+    "$http_fns/": "https://deno.land/x/http_fns@v0.3.0/lib/"
+  },
+  "deploy": {
+    "project": "webhooks-experiment",
+    "exclude": [],
+    "include": [],
+    "entrypoint": "main.ts"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": "3",
+  "remote": {
+    "https://deno.land/std@0.215.0/net/get_available_port.ts": "a55f981de609a92540d1fbc68667368973f17349cb09a7307a3309bf4be992e4",
+    "https://deno.land/x/http_fns@v0.3.0/lib/cascade.ts": "1790cc5b667fd7edbbb2125b3428167c8876eadcfcfbacf70efb7e6456f214c8",
+    "https://deno.land/x/http_fns@v0.3.0/lib/hosting/init_deploy.ts": "25428befc36324bb4b3ec411bc3d42dc1cfd7723c9f30e000c644cc43bd53430",
+    "https://deno.land/x/http_fns@v0.3.0/lib/hosting/init_localhost.ts": "3f36a9dd024b696eafc7c265c42ace45cd7ec26fd4c6f12f0f6abfdd3ba18041",
+    "https://deno.land/x/http_fns@v0.3.0/lib/intercept.ts": "c018221041cac08ba75567291f7a79e9052cbf3a59516787f5311bc0b357b1c7",
+    "https://deno.land/x/http_fns@v0.3.0/lib/load_key_and_cert.ts": "63124fb812f6c1ffdbdca054131005bf027cc5f8a7f28f9c8070e15fdc1c813f",
+    "https://deno.land/x/http_fns@v0.3.0/lib/logger.ts": "606c9347e4bc62b036136e98506c70247272fa61b3b6d419ce1d5b2f1cfb30dd",
+    "https://deno.land/x/http_fns@v0.3.0/lib/port.ts": "f4739b423a03bc44a6ed497fed7a94fb93b625b6874aeed41b01052ee3ba1abc",
+    "https://deno.land/x/http_fns@v0.3.0/lib/response/not_found.ts": "976749d3abd50008fb90ca056101603697ef845d534bbfc74bc8bec01c6b74b9",
+    "https://deno.land/x/http_fns@v0.3.0/lib/response/ok.ts": "9bfc04114957c4e4b08794ac3099114e8b65c05ddf329fe55cb874e8d30be7d9",
+    "https://deno.land/x/http_fns@v0.3.0/lib/response/plain_error.ts": "0e1b332c4ab815f03273987a29572835aa884db13eeec2866b31ee292da90ef4",
+    "https://deno.land/x/http_fns@v0.3.0/lib/server_url.ts": "9014aa2b38a21495108b43f273b974f843e06588c689ea1702328145fc996694",
+    "https://deno.land/x/http_fns@v0.3.0/lib/types.ts": "118983eb5863f31a469154c5f96de51e35580ca77c06e1b30b0614666e5e1898",
+    "https://deno.land/x/http_fns@v0.3.0/lib/with_fallback.ts": "a923f06e2aa79f92a1b03afbde52996ff86f274d4a6d7dcc91e9dda8440340e0"
+  }
+}

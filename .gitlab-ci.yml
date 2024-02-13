@@ -1,0 +1,20 @@
+variables:
+  DENO_DEPLOY_TOKEN:
+    description: "Access token for Deno Deploy"
+
+stages:
+  - check
+  - deploy
+
+check-job:
+  stage: check
+  script:
+    - curl https://pkgx.sh | sh
+    - pkgx deno check main.ts
+
+deploy-job:
+  stage: deploy
+  script:
+    - curl https://pkgx.sh | sh
+    - pkgx deno task deploy
+  environment: production
