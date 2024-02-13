@@ -1,0 +1,14 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - command: 'deno task start'
+
+ports:
+  - name: HTTP Server
+    port: 8000
+    visibility: public
+
+vscode:
+  extensions:
+    - denoland.vscode-deno
