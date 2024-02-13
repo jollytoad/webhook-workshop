@@ -16,9 +16,8 @@ check-job:
 
 deploy-job:
   stage: deploy
-  only:
-    variables:
-      - $DENO_DEPLOY_TOKEN
+  rules:
+    - if: $DENO_DEPLOY_TOKEN
   script:
     - deno task deploy --prod
   environment: production
