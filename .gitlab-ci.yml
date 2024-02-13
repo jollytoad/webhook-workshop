@@ -12,7 +12,9 @@ default:
 check-job:
   stage: check
   script:
-    - deno check main.ts
+    - deno fmt --check
+    - deno lint
+    - deno check app/main.ts
 
 deploy-job:
   stage: deploy
