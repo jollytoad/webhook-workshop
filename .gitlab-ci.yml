@@ -6,15 +6,16 @@ stages:
   - check
   - deploy
 
+default:
+  image: denoland/deno:alpine
+
 check-job:
   stage: check
   script:
-    - curl https://pkgx.sh | sh
-    - pkgx deno check main.ts
+    - deno check main.ts
 
 deploy-job:
   stage: deploy
   script:
-    - curl https://pkgx.sh | sh
-    - pkgx deno task deploy
+    - deno task deploy
   environment: production
