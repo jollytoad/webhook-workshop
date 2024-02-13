@@ -1,5 +1,16 @@
 {
   "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:gitlab-event-types": "npm:gitlab-event-types@2.0.1"
+    },
+    "npm": {
+      "gitlab-event-types@2.0.1": {
+        "integrity": "sha512-NssgV2c8U6VR92wm6ZIIQbzVP8RTfd2nP9/DfNUmVE1v9t867jdw9iu1gGL6o014rIicLId/BE3LTn5spJPVeA==",
+        "dependencies": {}
+      }
+    }
+  },
   "remote": {
     "https://deno.land/std@0.215.0/net/get_available_port.ts": "a55f981de609a92540d1fbc68667368973f17349cb09a7307a3309bf4be992e4",
     "https://deno.land/x/http_fns@v0.3.0/lib/cascade.ts": "1790cc5b667fd7edbbb2125b3428167c8876eadcfcfbacf70efb7e6456f214c8",
