@@ -1,7 +1,9 @@
 import handler from "./handler.ts";
 import init from "$http_fns/hosting/init_deploy.ts";
+import interceptors from "./interceptors.ts";
 
 /**
- * This is the main entry point of the server
+ * This is the main production entry point of the server
  */
-await Deno.serve(await init(handler)).finished;
+
+await Deno.serve(await init(handler, ...interceptors)).finished;

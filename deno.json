@@ -1,14 +1,15 @@
 {
   "tasks": {
     "gen": "deno run --config=deno.json --allow-net --allow-read=app/routes,app/routes.ts --allow-write=app/routes.ts scripts/gen.ts",
-    "start": "deno run --allow-read --allow-net --watch scripts/dev.ts",
+    "start": "deno run --allow-read --allow-net --allow-env --env --watch scripts/dev.ts",
     "deploy": "deno run --allow-read --allow-write --allow-env --allow-net --allow-run --allow-sys --quiet https://deno.land/x/deploy/deployctl.ts deploy",
     "check": "deno fmt && deno lint && deno check **/*.ts",
-    "lock": "rm -f deno.lock && deno check app/main.ts scripts/dev.ts"
+    "lock": "rm -f deno.lock && deno check app/main.ts scripts/dev.ts",
+    "token": "deno run scripts/token.ts"
   },
   "imports": {
     "$std/": "https://deno.land/std@0.215.0/",
-    "$http_fns/": "https://deno.land/x/http_fns@v0.3.0/lib/",
+    "$http_fns/": "https://deno.land/x/http_fns@v0.4.0/lib/",
     "gitlab-event-types": "npm:gitlab-event-types"
   },
   "deploy": {
