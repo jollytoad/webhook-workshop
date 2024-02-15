@@ -7,6 +7,7 @@ function generateRoutes() {
     fileRootUrl: import.meta.resolve("../app/routes"),
     moduleOutUrl: import.meta.resolve("../app/routes.ts"),
     httpFns: "$http_fns/",
+    moduleImports: "static",
     verbose: true,
   });
 }

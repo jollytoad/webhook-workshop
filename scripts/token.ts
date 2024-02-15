@@ -1,9 +1,3 @@
-import { encodeBase58 as encode } from "$std/encoding/base58.ts";
+import { generateWebhookToken } from "../app/lib/generate_webhook_token.ts";
 
-export function generateWebhookToken(prefix = "glwht-", bytes = 32) {
-  return prefix + encode(crypto.getRandomValues(new Uint8Array(bytes)));
-}
-
-if (import.meta.main) {
-  console.log(generateWebhookToken());
-}
+console.log(generateWebhookToken());

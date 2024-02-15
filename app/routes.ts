@@ -2,10 +2,18 @@
 
 import { byPattern } from "$http_fns/by_pattern.ts";
 import { cascade } from "$http_fns/cascade.ts";
-import { lazy } from "$http_fns/lazy.ts";
+import route_1 from "./routes/token.ts";
+import route_2 from "./routes/report/counts.tsx";
+import route_3 from "./routes/hook/slow.ts";
+import route_4 from "./routes/hook/queue.ts";
+import route_5 from "./routes/hook/log.ts";
+import route_6 from "./routes/hook/count.ts";
 
 export default cascade(
-  byPattern("/report/counts", lazy(() => import("./routes/report/counts.tsx"))),
-  byPattern("/hook/log", lazy(() => import("./routes/hook/log.ts"))),
-  byPattern("/hook/count", lazy(() => import("./routes/hook/count.ts"))),
+  byPattern("/token", route_1),
+  byPattern("/report/counts", route_2),
+  byPattern("/hook/slow", route_3),
+  byPattern("/hook/queue", route_4),
+  byPattern("/hook/log", route_5),
+  byPattern("/hook/count", route_6),
 );

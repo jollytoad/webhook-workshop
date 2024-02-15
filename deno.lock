@@ -79,6 +79,7 @@
     "https://deno.land/x/http_fns@v0.4.0/lib/lazy.ts": "3b16574896869df0c492cfb2e79c983d9ec6fbe5bf5914a32bd5b7454eb6aca3",
     "https://deno.land/x/http_fns@v0.4.0/lib/load_key_and_cert.ts": "63124fb812f6c1ffdbdca054131005bf027cc5f8a7f28f9c8070e15fdc1c813f",
     "https://deno.land/x/http_fns@v0.4.0/lib/port.ts": "f4739b423a03bc44a6ed497fed7a94fb93b625b6874aeed41b01052ee3ba1abc",
+    "https://deno.land/x/http_fns@v0.4.0/lib/request/search_values.ts": "a8dd92a7e3da538abbc8da7153a840c3f3c8658c9a867c9beec81c0602140007",
     "https://deno.land/x/http_fns@v0.4.0/lib/response/append_headers.ts": "5eee22185388012a4a654e1f374983c9dcd1b3d7a41eadb4b867993ae6331732",
     "https://deno.land/x/http_fns@v0.4.0/lib/response/bad_request.ts": "b34ba9c64ba00971add21b6a3d6f226283c91ec0b3e7b16f17cd277ca6b6db42",
     "https://deno.land/x/http_fns@v0.4.0/lib/response/forbidden.ts": "08870d3fef6549e26560ce222483b112351870d3731381564b83072abb5e4672",
