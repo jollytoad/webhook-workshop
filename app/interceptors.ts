@@ -1,6 +1,6 @@
 import type { Interceptors } from "$http_fns/types.ts";
 import { verifyHeader } from "$http_fns/interceptor/verify_header.ts";
-import { whenPattern } from "./lib/when_pattern.ts";
+import { whenPattern } from "$http_fns/interceptor/when_pattern.ts";
 
 const TOKEN_VAR = "GITLAB_WEBHOOK_TOKEN";
 const token = Deno.env.get(TOKEN_VAR);
