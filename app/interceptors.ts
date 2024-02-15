@@ -1,6 +1,6 @@
-import type { Awaitable, Interceptors, RoutePattern } from "$http_fns/types.ts";
+import type { Interceptors } from "$http_fns/types.ts";
 import { verifyHeader } from "$http_fns/interceptor/verify_header.ts";
-import { asURLPattern } from "$http_fns/as_url_pattern.ts";
+import { whenPattern } from "./lib/when_pattern.ts";
 
 const TOKEN_VAR = "GITLAB_WEBHOOK_TOKEN";
 const token = Deno.env.get(TOKEN_VAR);
@@ -25,28 +25,3 @@ export default [{
     ),
   ],
 }] satisfies Interceptors[];
-
-// TODO: incorporate this into $http_fns...
-
-export function whenPattern<A extends unknown[]>(
-  pattern: RoutePattern,
-  interceptor: (
-    request: Request,
-    match: URLPatternResult,
-    ...args: A
-  ) => Awaitable<Request | Response | void>,
-): (request: Request, ...args: A) => Awaitable<Request | Response | void> {
-  const patterns = Array.isArray(pattern)
-    ? pattern.map(asURLPattern)
-    : [asURLPattern(pattern)];
-
-  return (req: Request, ...args: A) => {
-    for (const pattern of patterns) {
-      const match = pattern.exec(req.url);
-
-      if (match) {
-        return interceptor(req, match, ...args);
-      }
-    }
-  };
-}

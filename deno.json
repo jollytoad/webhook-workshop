@@ -7,7 +7,7 @@
     "start": "deno run --allow-read --allow-write=app/routes.ts --allow-net --allow-env --env --watch scripts/dev.ts",
     "deploy": "deno run --allow-read --allow-write --allow-env --allow-net --allow-run --allow-sys --quiet https://deno.land/x/deploy/deployctl.ts deploy",
     "check": "deno fmt && deno lint && deno check **/*.ts",
-    "lock": "rm -f deno.lock && deno check app/main.ts scripts/dev.ts",
+    "lock": "rm -f deno.lock && deno check app/main.ts scripts/*.ts",
     "token": "deno run scripts/token.ts"
   },
   "compilerOptions": {

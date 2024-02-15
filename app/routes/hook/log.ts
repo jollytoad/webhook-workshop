@@ -1,5 +1,5 @@
 import { ok } from "$http_fns/response/ok.ts";
-import { byWebhookEvent } from "../../../lib/by_webhook_event.ts";
+import { byWebhookEvent } from "../../lib/by_webhook_event.ts";
 
 export default byWebhookEvent("*", (req, eventData) => {
   const hookName = req.headers.get("X-GitLab-Event");

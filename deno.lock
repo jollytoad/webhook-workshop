@@ -16,6 +16,8 @@
     "https://deno.land/std@0.215.0/assert/assertion_error.ts": "9f689a101ee586c4ce92f52fa7ddd362e86434ffdf1f848e45987dc7689976b8",
     "https://deno.land/std@0.215.0/async/delay.ts": "8e1d18fe8b28ff95885e2bc54eccec1713f57f756053576d8228e6ca110793ad",
     "https://deno.land/std@0.215.0/async/mux_async_iterator.ts": "33aa184f27fd2be1467dab3785dfdf525c8b8acd150a049331f0fdf927a17dda",
+    "https://deno.land/std@0.215.0/encoding/_util.ts": "beacef316c1255da9bc8e95afb1fa56ed69baef919c88dc06ae6cb7a6103d376",
+    "https://deno.land/std@0.215.0/encoding/base58.ts": "9c95d9bbf370368f3bfa46a8109fe18a3c35a47fd41f6745385050be504aec8a",
     "https://deno.land/std@0.215.0/html/entities.ts": "f05039e30ee92220ec8958b1cd84ce8762a00905d6adbdb468608fdde418b40e",
     "https://deno.land/std@0.215.0/http/_negotiation/common.ts": "051a9f6edd1ed69507df89bbc16fc1b13b7654b9b8fd38072ec33ae4c185fc13",
     "https://deno.land/std@0.215.0/http/_negotiation/encoding.ts": "afc658fca003248777919257474a2d128892cbca4a3b9faa1ddee8d7a53e52a9",
