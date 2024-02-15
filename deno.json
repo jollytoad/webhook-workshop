@@ -1,15 +1,32 @@
 {
+  "unstable": [
+    "kv"
+  ],
   "tasks": {
     "gen": "deno run --config=deno.json --allow-net --allow-read=app/routes,app/routes.ts --allow-write=app/routes.ts scripts/gen.ts",
-    "start": "deno run --allow-read --allow-net --allow-env --env --watch scripts/dev.ts",
+    "start": "deno run --allow-read --allow-write=app/routes.ts --allow-net --allow-env --env --watch scripts/dev.ts",
     "deploy": "deno run --allow-read --allow-write --allow-env --allow-net --allow-run --allow-sys --quiet https://deno.land/x/deploy/deployctl.ts deploy",
     "check": "deno fmt && deno lint && deno check **/*.ts",
     "lock": "rm -f deno.lock && deno check app/main.ts scripts/dev.ts",
     "token": "deno run scripts/token.ts"
   },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "$jsx",
+    "verbatimModuleSyntax": true
+  },
+  "fmt": {
+    "exclude": [
+      "app/routes.ts"
+    ]
+  },
   "imports": {
     "$std/": "https://deno.land/std@0.215.0/",
+    "https://deno.land/std@0.208.0/": "https://deno.land/std@0.215.0/",
     "$http_fns/": "https://deno.land/x/http_fns@v0.4.0/lib/",
+    "$http_render_fns/": "https://deno.land/x/http_render_fns@v0.1.0/lib/",
+    "$jsx/": "https://deno.land/x/jsx_stream@v0.0.13/",
+    "$jsx/jsx-runtime": "https://deno.land/x/jsx_stream@v0.0.13/jsx-runtime.ts",
     "gitlab-event-types": "npm:gitlab-event-types"
   },
   "deploy": {

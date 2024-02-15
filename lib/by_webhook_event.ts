@@ -1,6 +1,6 @@
 import { byMethod } from "$http_fns/by_method.ts";
 import { badRequest } from "$http_fns/response/bad_request.ts";
-import { Awaitable } from "$http_fns/types.ts";
+import type { Awaitable } from "$http_fns/types.ts";
 import type {
   BuildEvent,
   DeploymentEvent,

@@ -6,15 +6,15 @@ export default byWebhookEvent("*", (req, eventData) => {
   const instance = req.headers.get("X-GitLab-Instance");
   const userAgent = req.headers.get("User-Agent");
 
-  console.log(`%c${hookName} from ${instance} (${userAgent})`, 'color: purple');
+  console.log(`%c${hookName} from ${instance} (${userAgent})`, "color: purple");
 
-  console.groupCollapsed("%cHeaders...", 'font-weight: bold');
+  console.groupCollapsed("%cHeaders...", "font-weight: bold");
   for (const [name, value] of req.headers.entries()) {
     console.log(`${name}: ${value}`);
   }
   console.groupEnd();
 
-  console.groupCollapsed("%cEvent body...", 'font-weight: bold');
+  console.groupCollapsed("%cEvent body...", "font-weight: bold");
   console.log(JSON.stringify(eventData, null, 2));
   console.groupEnd();
 
