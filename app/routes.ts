@@ -7,7 +7,8 @@ import route_2 from "./routes/report/counts.tsx";
 import route_3 from "./routes/hook/slow.ts";
 import route_4 from "./routes/hook/queue.ts";
 import route_5 from "./routes/hook/log.ts";
-import route_6 from "./routes/hook/count.ts";
+import route_6 from "./routes/hook/create-issue-on-fail.ts";
+import route_7 from "./routes/hook/count.ts";
 
 export default cascade(
   byPattern("/token", route_1),
@@ -15,5 +16,6 @@ export default cascade(
   byPattern("/hook/slow", route_3),
   byPattern("/hook/queue", route_4),
   byPattern("/hook/log", route_5),
-  byPattern("/hook/count", route_6),
+  byPattern("/hook/create-issue-on-fail", route_6),
+  byPattern("/hook/count", route_7),
 );

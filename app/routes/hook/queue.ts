@@ -1,22 +1,23 @@
-import { accepted } from "$http_fns/response/accepted.ts";
 import { byWebhookEvent } from "../../lib/by_webhook_event.ts";
-import { getSearchValues } from "$http_fns/request/search_values.ts";
+import { background } from "../../lib/background.ts";
+import { delay } from "$std/async/delay.ts";
+import { ok } from "$http_fns/response/ok.ts";
 
-export default byWebhookEvent("*", async (req, eventData) => {
-  const delay = parseInt(getSearchValues(req)("delay")[0] ?? "") || 0;
+const DURATION = 30;
 
-  using kv = await Deno.openKv();
+export default background(
+  // deno-lint-ignore no-explicit-any
+  byWebhookEvent("*", async (_req, eventData: any, ...args) => {
+    console.log(`Handling background event: ${eventData.object_kind}`);
+    console.log("Args:", ...args);
 
-  console.log("Queue event, delay:", delay);
-  await kv.enqueue(eventData, {
-    delay,
-  });
+    for (let i = 1; i <= DURATION; i++) {
+      console.log(`${i}/${DURATION}`);
+      await delay(1000);
+    }
 
-  return accepted();
-});
+    console.log("Done");
 
-const kv = await Deno.openKv();
-
-kv.listenQueue((data) => {
-  console.log("Handle queued event", data);
-});
+    return ok();
+  }),
+);

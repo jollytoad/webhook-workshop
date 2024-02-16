@@ -13,24 +13,27 @@ import type {
   PushEvent,
   ReleaseEvent,
   TagPushEvent,
+  WebhookEvents,
   WikiPageEvent,
 } from "gitlab-event-types";
 
-type NamedEvent =
-  | PushEvent
-  | TagPushEvent
-  | IssueEvent
-  | NoteEvent
-  | MergeRequestEvent
-  | WikiPageEvent
-  | PipelineEvent
-  | BuildEvent
-  | DeploymentEvent
-  // | GroupMemberEvent
-  // | SubgroupEvent
-  | FeatureFlagEvent
-  | ReleaseEvent
-  | EmojiEvent;
+interface EventCatalog {
+  push: PushEvent;
+  tag_push: TagPushEvent;
+  issue: IssueEvent;
+  note: NoteEvent;
+  merge_request: MergeRequestEvent;
+  wiki_page: WikiPageEvent;
+  pipeline: PipelineEvent;
+  build: BuildEvent;
+  deployment: DeploymentEvent;
+  // group_member: GroupMemberEvent
+  // subgroup: SubgroupEvent
+  feature_flag: FeatureFlagEvent;
+  release: ReleaseEvent;
+  emoji: EmojiEvent;
+  "*": WebhookEvents;
+}
 
 /**
  * Create a Request handler for a GitLab Webhook Event.
@@ -40,28 +43,27 @@ type NamedEvent =
  * @returns a Request handler that returns a Response or null
  */
 export function byWebhookEvent<
-  E extends NamedEvent,
-  N extends E["object_kind"] | "*",
+  N extends keyof EventCatalog,
   A extends [],
 >(
   eventName: N,
   handler: (
     req: Request,
-    eventData: E,
+    eventData: EventCatalog[N],
     ...args: A
   ) => Awaitable<Response | null>,
 ) {
+  // FIXME: some X-GitLab-Event values do not match the object_kind in the event data
+
   const expectedEventHeaderValue = eventName === "*"
     ? undefined
-    : (eventName as string).replace("_", " ") + " hook";
+    : eventName.replace("_", " ") + " hook";
 
   return byMethod({
     POST: async (req: Request, ...args: A) => {
       if (expectedEventHeaderValue) {
-        const eventHeaderValue = req.headers.get("X-GitLab-Event")
+        const eventHeaderValue = req.headers.get("X-Gitlab-Event")
           ?.toLowerCase();
-
-        // TODO: verify token (maybe this should be done by an interceptor)
 
         if (eventHeaderValue !== expectedEventHeaderValue) {
           // X-GitLab-Event does match the expected event name, so skip handling
@@ -69,10 +71,10 @@ export function byWebhookEvent<
         }
       }
 
-      let eventData: E;
+      let eventData;
 
       try {
-        eventData = (await req.json()) as E;
+        eventData = await req.json();
       } catch {
         return badRequest("Failed to parse event data");
       }
