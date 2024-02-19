@@ -1,6 +1,7 @@
 import { byMethod } from "$http_fns/by_method.ts";
 import { byMediaType } from "$http_fns/by_media_type.ts";
 import { renderHTML } from "$http_render_fns/render_html.tsx";
+import { kv } from "../../lib/kv.ts";
 
 export default byMethod({
   GET: byMediaType({
@@ -40,8 +41,6 @@ function Report() {
 }
 
 async function* ReportRows() {
-  using kv = await Deno.openKv();
-
   const iter = kv.list<Deno.KvU64>({ prefix: ["count"] });
 
   for await (const entry of iter) {

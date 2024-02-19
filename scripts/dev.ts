@@ -6,6 +6,7 @@ import { initBackgroundRequestListener } from "../app/lib/background.ts";
 import { intercept } from "$http_fns/intercept.ts";
 import { withFallback } from "$http_fns/with_fallback.ts";
 import { logging } from "$http_fns/interceptor/logger.ts";
+import { initKv } from "../app/lib/kv.ts";
 
 /**
  * This is the development time entry point of the server
@@ -13,6 +14,7 @@ import { logging } from "$http_fns/interceptor/logger.ts";
 
 await generateRoutes();
 
+await initKv();
 await initBackgroundRequestListener(
   intercept(withFallback(handler), logging()),
 );

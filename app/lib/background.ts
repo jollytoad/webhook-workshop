@@ -1,6 +1,7 @@
 import type { Awaitable } from "$http_fns/types.ts";
 import { accepted } from "$http_fns/response/accepted.ts";
 import { badRequest } from "$http_fns/response/bad_request.ts";
+import { kv } from "./kv.ts";
 
 export interface BackgroundRequest {
   kind: "request";
@@ -63,9 +64,7 @@ export function background<A extends []>(
         },
       };
 
-      using kv = await Deno.openKv();
-
-      console.debug("Enqueue", backgroundRequest);
+      // console.debug("Enqueue", backgroundRequest);
       await kv.enqueue(backgroundRequest);
 
       return accepted();
@@ -81,11 +80,9 @@ export function background<A extends []>(
   };
 }
 
-export async function initBackgroundRequestListener(
+export function initBackgroundRequestListener(
   handler: (req: Request) => Awaitable<Response | null>,
 ) {
-  const kv = await Deno.openKv();
-
   kv.listenQueue(backgroundRequestListener(handler));
 }
 
@@ -102,7 +99,7 @@ export function backgroundRequestListener(
         body,
       });
 
-      console.debug("Background", request);
+      // console.debug("Background", request);
 
       await handler(request);
     }
