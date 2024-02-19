@@ -21,7 +21,8 @@ export default background(
     // Get some useful values from the event data
     const projectId = eventData.project.id!;
     const pipelineId = eventData.object_attributes.id;
-    const pipelineUrl = (eventData.object_attributes as unknown as { url: string }).url;
+    const pipelineUrl =
+      (eventData.object_attributes as unknown as { url: string }).url;
     const baseUrl = new URL("/", eventData.project.web_url);
 
     // Get the GitLab API access token and prepare common request headers
