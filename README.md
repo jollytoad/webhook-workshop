@@ -1,4 +1,4 @@
-# Webhooks Experiment
+# Webhooks Workshop
 
 This is an example of building [GitLab] [webhooks] handlers using [Gitpod] and
 [Deno], and deploying them to Deno [Deploy].
