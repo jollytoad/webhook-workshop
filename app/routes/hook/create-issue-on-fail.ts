@@ -36,15 +36,23 @@ export default background(
 
     if (failureIssue) {
       console.log("Failure issue exists...");
+
+      // At this point you could opt to return now and avoid the AI summary overhead
+      // for subsequent failures if you prefer, this could even be determined from
+      // a URL parameter. Or you could build a UI within this server to customize
+      // your webhook behaviour and save the config using Deno.Kv to be read here.
     } else {
       // Create a new issue for the failure if one doesn't already exist
       console.log("Create new failure issue...");
       failureIssue = await createFailureIssue();
     }
 
-    console.log(failureIssue);
+    // console.log(failureIssue);
 
     const issueIid = failureIssue.iid;
+
+    // Here we'll make use of an LLM to summarize jobs failures and add a comment
+    // to the issue obtained above...
 
     let openai: OpenAI | undefined = undefined;
 
@@ -53,6 +61,8 @@ export default background(
     } catch (error: unknown) {
       console.warn(error);
     }
+
+    // For every failed job, summarize the failure and add a comment...
 
     await Promise.allSettled(
       eventData.builds
@@ -66,7 +76,7 @@ export default background(
 
             const comment = `Failed job: ${job.name}\n\n${summary}`;
 
-            console.log(`\n${comment}`);
+            // console.log(`\n${comment}`);
 
             await addIssueComment(comment);
           }
