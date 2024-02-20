@@ -147,8 +147,10 @@ export default background(
             role: "system",
             content:
               "You will be given a detailed log of a CI job that failed. " +
-              "Give a succinct reason for the failure, and suggest a remedy. " +
-              "Suggest a remedy, but only if you are confident about it, do not make one for the sake of it.",
+              "Ignore the ANSI control sequences, convert them to markdown if quoting any of the log. " +
+              "Give a succinct reason for the failure. " +
+              "Suggest a remedy, based on accurate information. " +
+              "If you are not certain, clearly state that you don't know, rather than providing a made-up response.",
           },
           {
             role: "user",
