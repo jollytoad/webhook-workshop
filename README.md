@@ -88,7 +88,7 @@ To add the webhook in GitLab:
    webhooks, one that already has CI/CD pipeline is good if you want to try out
    the most complex example
    ([`create-issue-on-fail`](./app/routes/hook/create-issue-on-fail.ts)).
-2. In that project go to **Settings** > **Webhooks**.
+2. In that project go to **Settings** `>` **Webhooks**.
 3. Click **Add new webhook**.
 4. Paste your base gitpod **URL** (obtained earlier) and append your hook route,
    example:
@@ -137,8 +137,8 @@ into Deno Deploy and generate a deployment token.
 4. Give the token a good description (I like to use the GitLab URL of the
    webhooks project) and hit **Generate**.
 5. Copy the newly generated token.
-6. Go back to your webhooks project in GitLab, and to: **Settings** > **CI/CD**
-   > **Variables** (click **Expand**).
+6. Go back to your webhooks project in GitLab, and to: **Settings** _>_
+   **CI/CD** _>_ **Variables** (click **Expand**).
 7. Then **Add variable**.
 8. For this example, under **Flags**, check only **Mask variable**.
 9. Set the **Key** field to `DENO_DEPLOY_TOKEN`, and paste the copied token into
