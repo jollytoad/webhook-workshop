@@ -12,6 +12,8 @@ import { initKv } from "../app/lib/kv.ts";
  * This is the development time entry point of the server
  */
 
+console.debug(Deno.version);
+
 await generateRoutes();
 
 await initKv();
