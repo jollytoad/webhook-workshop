@@ -8,8 +8,6 @@ import { initKv } from "./lib/kv.ts";
  * This is the main production entry point of the server
  */
 
-console.debug(Deno.version);
-
 await initKv();
 await initBackgroundRequestListener(handler);
 

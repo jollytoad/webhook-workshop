@@ -28,7 +28,7 @@
     "$jsx/": "https://deno.land/x/jsx_stream@v0.0.13/",
     "$jsx/jsx-runtime": "https://deno.land/x/jsx_stream@v0.0.13/jsx-runtime.ts",
     "gitlab-event-types": "npm:gitlab-event-types",
-    "openai/": "https://deno.land/x/openai@v4.28.0/"
+    "openai": "https://deno.land/x/openai@v4.28.0/mod.ts"
   },
   "deploy": {
     "project": "webhook-workshop",

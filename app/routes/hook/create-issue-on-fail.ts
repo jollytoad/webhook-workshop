@@ -1,7 +1,7 @@
 import { ok } from "$http_fns/response/ok.ts";
 import { badGateway } from "$http_fns/response/bad_gateway.ts";
 import { byWebhookEvent } from "../../lib/by_webhook_event.ts";
-import OpenAI from "openai/mod.ts";
+import OpenAI from "openai";
 import { background } from "../../lib/background.ts";
 
 interface Issue {
