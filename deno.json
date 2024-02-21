@@ -31,7 +31,7 @@
     "openai/": "https://deno.land/x/openai@v4.28.0/"
   },
   "deploy": {
-    "project": "jollytoad-gitlab-webhooks",
+    "project": "webhook-workshop",
     "exclude": [],
     "include": [],
     "entrypoint": "app/main.ts"

@@ -183,3 +183,125 @@ Now test your webhook as you did early and monitor the logs with the Deno Deploy
 project (rather than Gitpod).
 
 You should now have live production webhooks ready to handle your GitLab events.
+
+## Example Webhooks
+
+This project contains several example webhooks that can provide a starting point
+for your own...
+
+### [log](./app/routes/hook/log.ts)
+
+This simply logs information from the webhook request and event data to the
+console. This is an ideal hook to copy as a starting point, as it allows you to
+inspect the event payload and find the details you need, and gradually remove
+the logging that you no longer need.
+
+### [create-issue-on-fail](./app/routes/hook/create-issue-on-fail.ts)
+
+This is a more complete example, that listens for a `pipeline`, specifically a
+failure.
+
+It demonstrates requests to the GitLab API, to a third-party API, in this case
+OpenAI, and use a queueing mechanism in Deno.
+
+It will create a new GitLab issue within the same project as the pipeline with
+the label `failed-pipeline`, or use an existing open one.
+
+Then it will fetch the logs of the failed jobs from the pipeline, and feed them
+into the OpenAI GPT-4 LLM, asking for a summary of the failure and a potential
+remedy. It will add this as a comment to the issue.
+
+You'll need to set the environment variables: `GITLAB_API_TOKEN` and optionally
+the `OPENAI_API_KEY` (log summary comments are skipped if not set).
+
+The whole handler is wrapped in `background(...)` function, this is a helper
+that pushes entire Request onto the
+[Deno Kv Queue](https://docs.deno.com/deploy/kv/manual/queue_overview) and
+immediately responds with `202 Accepted`. The queued request is then handled in
+the background by the handler function passed to `background()`.
+
+### [count](./app/routes/hook/count.ts)
+
+This demonstrates use of the [Deno KV](https://deno.com/kv), key-value database
+built into Deno, and also available within Deno Deploy.
+
+A counter for each hook type is incremented when hit.
+
+This is accompanied by a simple web page that reads the counts from Kv and
+renders them in a table. You can open the `https://.../report/count` link of
+your dev or production app to see this. See
+[count.tsx](./app/routes/report/count.tsx) (NOTE: this page makes use of JSX,
+but it isn't React).
+
+### [queue](./app/routes/hook/queue.ts)
+
+This is another, albeit simpler, demo of the queueing mechanism described above.
+
+### [slow](./app/routes/hook/slow.ts)
+
+Does nothing more than sleep for some amount of time, which can be given in a
+parameter of the webhook URL. This can be useful to test what happens if a
+webhook times out.
+
+It also demonstrates how a search parameter can be useful as configuration for a
+webhook.
+
+## Starting the dev server
+
+This is done automatically when using Gitpod, but in other environments you may
+need to start it manually:
+
+```sh
+deno task start
+```
+
+## Adding and removing webhooks (and other routes)
+
+Routes in the web server are represented by the filesystem structure, this needs
+to be discovered by a script to generate the [routes.ts](./app/routes.ts)
+module. This is done automatically when running the dev server, but sometimes
+you may need to manually run the generation like so:
+
+```sh
+deno task gen
+```
+
+This may be necessary after adding or deleting a typescript module.
+
+## Other maintenance tasks
+
+A number of other tasks are defined in the [deno.json](./deno.json) file,
+including:
+
+- `deploy` - to manually deploy to Deno Deploy (this is used from the CI/CD
+  pipeline)
+- `check` - to format, lint and typescript the project
+- `lock` - to delete and recreate a fresh [deno.lock](./deno.lock) file
+- `token` - to generate a random token that can be used as your webhook secret
+  token
+
+## Configurations
+
+This project contains a number of configurations that you may want to custom
+along your journey:
+
+- [.gitlab-ci.yml](./.gitlab-ci.yml) - the CI/CD pipeline for GitLab, that
+  deploys to Deno Deploy.
+- [.gitpod.yml](./.gitpod.yml) & [.gitpod.Dockerfile](./.gitpod.Dockerfile) -
+  configuration for Gitpod.
+- [deno.json](./deno.json) - configuration for the Deno runtime, and the target
+  Deno Deploy project.
+- [.env](./.env) - environment variables for the dev server (do not commit to
+  git).
+- [.env.example](./.env.example) - a template for your `.env` file.
+
+## Resources
+
+This project makes use of a number of Deno libraries and npm packages..
+
+- [Deno Standard Library](https://deno.land/std)
+- [HTTP Functions](https://deno.land/x/http_fns)
+- [HTTP Rendering Functions](https://deno.land/x/http_fns)
+- [JSX Streaming](https://deno.land/x/jsx_stream)
+- [OpenAI API](https://deno.land/x/openai)
+- [GitLab Event Types](https://github.com/lawvs/gitlab-event-types)
