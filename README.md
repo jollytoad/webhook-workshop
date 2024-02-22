@@ -31,6 +31,34 @@ additional services.
 [GitLab] itself provides the git repo hosting for your webhook codebase, and
 CI/CD to test and deploy them to Deno Deploy.
 
+The intention is that you should fork this project, and use it as a template
+from which to create your own webhooks. It contains a number of example
+webhooks, including a hook to create an issue on a pipeline failure and use an
+OpenAI LLM to summarise the reason and suggest a remedy. The full list is
+presented further down.
+
+### Flexibility
+
+The only hard requirement of this project is the Deno runtime, although the
+overall workflow demonstrated here could be adapted to an alternative runtime or
+even language.
+
+Gitpod provides a convenience for an instant dev environment, and hosting a dev
+server that is publicly accessible, but you could, if you prefer, just checkout
+the code locally, install Deno, and use a HTTP tunnel.
+
+Deno Deploy provides a convenient platform for hosting your production server,
+but again, you are not locked into this. You could bundle into a Docker
+container or even compile to a single binary executable. You would have to deal
+with provisioning of database, and queueing if you required that though.
+
+Although this project focuses on GitLab webhooks, but you could handle webhooks
+from other services too, even in the same server.
+
+And, as this is really just a web server, you could use it as a template to
+build other things that aren't even webhooks. A web app or site, an API, or
+schedule tasks (using [Deno Cron](https://docs.deno.com/deploy/kv/manual/cron)).
+
 ## Pre-requisties
 
 You'll need accounts on:
