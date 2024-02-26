@@ -1,15 +1,13 @@
-# Webhooks Workshop
+# Webhook Workshop
 
-This is an example of building [GitLab] [webhooks] handlers using [Gitpod] and
+This is an example of building [GitLab] [webhook] handlers using [Gitpod] and
 [Deno], and deploying them to Deno [Deploy].
 
 [GitLab]: https://gitlab.com
-[webhooks]: https://docs.gitlab.com/ee/user/project/integrations/webhooks.html
+[webhook]: https://docs.gitlab.com/ee/user/project/integrations/webhooks.html
 [Gitpod]: https://gitpod.io
 [Deno]: https://deno.com
 [Deploy]: https://deno.com/deploy
-
-(NOTE: requires Deno 1.40.5+)
 
 ## What can you do with it?
 
@@ -70,7 +68,7 @@ You'll need accounts on:
 
 ## How to get started
 
-1. Fork this repository in GitLab.
+1. **Fork** this repository in GitLab.
 2. Click **Edit in Gitpod**. If it's your first time using Gitpod you'll have to
    go through a short onboarding process.
 3. Select your preferred IDE (VSCode in browser, if you aren't sure), you'll
