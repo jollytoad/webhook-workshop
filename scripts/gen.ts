@@ -1,7 +1,8 @@
 import { generateRoutesModule } from "$http_fns/generate_routes_module.ts";
+import { generateHooksIndex } from "./gen_hooks_index.ts";
 
 function generateRoutes() {
-  console.debug("Generating routes");
+  console.debug("\nGenerating routes");
 
   return generateRoutesModule({
     fileRootUrl: import.meta.resolve("../app/routes"),
@@ -16,4 +17,5 @@ export default generateRoutes;
 
 if (import.meta.main) {
   await generateRoutes();
+  await generateHooksIndex();
 }

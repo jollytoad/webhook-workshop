@@ -3,8 +3,8 @@
     "kv"
   ],
   "tasks": {
-    "gen": "deno run --config=deno.json --allow-net --allow-read=app/routes,app/routes.ts --allow-write=app/routes.ts scripts/gen.ts",
-    "start": "deno run --allow-read --allow-write=app/routes.ts --allow-net --allow-env --env --watch scripts/dev.ts",
+    "gen": "deno run --config=deno.json --allow-net --allow-read=app/routes,app/routes.ts,app/hooks.json --allow-write=app/routes.ts,app/hooks.json scripts/gen.ts",
+    "start": "deno run --allow-read --allow-write=app/routes.ts,app/hooks.json --allow-net --allow-env --env --watch scripts/dev.ts",
     "deploy": "deno run --allow-read --allow-write --allow-env --allow-net --allow-run --allow-sys --quiet https://deno.land/x/deploy/deployctl.ts deploy",
     "check": "deno fmt && deno lint && deno check **/*.ts",
     "lock": "rm -f deno.lock && deno check app/main.ts scripts/*.ts",

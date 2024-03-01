@@ -33,6 +33,9 @@ const BACKGROUND_TOKEN_VALUE = Deno.env.get("BACKGROUND_TOKEN") ??
  * to be processed a Kv queue listener must be registered using
  * `initBackgroundRequestListener()`.
  *
+ * NOTE: Only POST, PUT, PATCH, and DELETE requests will be enqueued, all other
+ * methods will be called immediately.
+ *
  * @param handler the handler to run in the background.
  * @returns A Request handler that always responds with `202 Accepted`
  */
@@ -40,6 +43,10 @@ export function background<A extends []>(
   handler: (request: Request, ...args: A) => Awaitable<Response | null>,
 ) {
   return async (req: Request, ...args: A) => {
+    if (!isBackgroundMethod(req)) {
+      return handler(req, ...args);
+    }
+
     if (!req.headers.has(BACKGROUND_TOKEN_HEADER)) {
       // We are handling the real request
 
@@ -78,6 +85,17 @@ export function background<A extends []>(
       return handler(req, ...args);
     }
   };
+}
+
+function isBackgroundMethod(req: Request) {
+  switch (req.method) {
+    case "POST":
+    case "PATCH":
+    case "PUT":
+    case "DELETE":
+      return true;
+  }
+  return false;
 }
 
 export function initBackgroundRequestListener(

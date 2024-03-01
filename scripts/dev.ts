@@ -7,6 +7,7 @@ import { intercept } from "$http_fns/intercept.ts";
 import { withFallback } from "$http_fns/with_fallback.ts";
 import { logging } from "$http_fns/interceptor/logger.ts";
 import { initKv } from "../app/lib/kv.ts";
+import generateHooksIndex from "./gen_hooks_index.ts";
 
 /**
  * This is the development time entry point of the server
@@ -15,6 +16,7 @@ import { initKv } from "../app/lib/kv.ts";
 console.debug(Deno.version);
 
 await generateRoutes();
+await generateHooksIndex();
 
 await initKv();
 await initBackgroundRequestListener(
