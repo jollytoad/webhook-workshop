@@ -331,3 +331,8 @@ This project makes use of a number of Deno libraries and npm packages..
 - [JSX Streaming](https://deno.land/x/jsx_stream)
 - [OpenAI API](https://deno.land/x/openai)
 - [GitLab Event Types](https://github.com/lawvs/gitlab-event-types)
+
+## GitLab Hackathon
+
+This was originally submitted as an
+[entry for a GitLab hackathon](https://devpost.com/software/webhook-workshop).
