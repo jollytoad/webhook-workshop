@@ -18,7 +18,8 @@
   },
   "fmt": {
     "exclude": [
-      "app/routes.ts"
+      "app/routes.ts",
+      "app/hooks.json"
     ]
   },
   "imports": {
