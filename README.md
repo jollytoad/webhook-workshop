@@ -170,14 +170,14 @@ into Deno Deploy and generate a deployment token.
 9. Set the **Key** field to `DENO_DEPLOY_TOKEN`, and paste the copied token into
    the **Value** field.
 
-The pipeline should be ready to deploy now, but before you do, back your IDE,
-open the file [deno.json](./deno.json) and change the value of **deploy** >
-**project**. This should be a unique name within the
-`https://<project>.deno.dev` domain, for example:
-`https://my-webhooks.deno.dev`, so make sure your chosen project name doesn't
-already exist.
+The pipeline should be ready to deploy now, but before you do, back in your IDE:
 
-You can now commit and push your changes.
+1. Open the file [deno.json](./deno.json)
+2. Change the value of **deploy** > **project**. This should be a unique name
+   within the `https://<project>.deno.dev` domain, for example:
+   `https://my-webhooks.deno.dev`, so make sure your chosen project name doesn't
+   already exist.
+3. You can now commit and push your changes.
 
 The GitLab CI/CD pipeline should kick-in, check your project, and then deploy to
 Deno Deploy. Watch the pipeline in GitLab, and check that the project has been
