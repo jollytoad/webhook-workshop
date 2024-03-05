@@ -12,7 +12,7 @@ This is an example of building [GitLab] [webhook] handlers using [Gitpod] and
 ## What can you do with it?
 
 You can quickly build, test and deploy webhooks for [GitLab] (either gitlab.com
-or your own hosted instance).
+or your own hosted instance), or other SaaS platforms.
 
 [GitPod] can provide an environment to edit the code and run a development
 server with a public URL, giving a realtime.
@@ -57,7 +57,7 @@ And, as this is really just a web server, you could use it as a template to
 build other things that aren't even webhooks. A web app or site, an API, or
 schedule tasks (using [Deno Cron](https://docs.deno.com/deploy/kv/manual/cron)).
 
-## Pre-requisties
+## Prerequisites
 
 You'll need accounts on:
 
