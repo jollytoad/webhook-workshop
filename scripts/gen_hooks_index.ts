@@ -1,5 +1,5 @@
-import { discoverRoutes } from "$http_fns/discover_routes.ts";
-import { asURLPatterns } from "$http_fns/as_url_pattern.ts";
+import { discoverRoutes } from "@http/fns/discover_routes";
+import { asURLPatterns } from "@http/fns/as_url_pattern";
 
 export async function generateHooksIndex() {
   console.debug("\nGenerating hooks index");

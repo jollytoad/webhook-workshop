@@ -1,7 +1,7 @@
 // IMPORTANT: This file has been automatically generated, DO NOT edit by hand.
 
-import { byPattern } from "$http_fns/by_pattern.ts";
-import { cascade } from "$http_fns/cascade.ts";
+import { byPattern } from "@http/fns/by_pattern";
+import { cascade } from "@http/fns/cascade";
 import route_1 from "./routes/token.ts";
 import route_2 from "./routes/report/counts.tsx";
 import route_3 from "./routes/hook/slow.ts";

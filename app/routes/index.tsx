@@ -1,15 +1,17 @@
-import { byMethod } from "$http_fns/by_method.ts";
-import { byMediaType } from "$http_fns/by_media_type.ts";
-import { mapData } from "$http_fns/map_data.ts";
-import { renderHTML } from "$http_render_fns/render_html.tsx";
-import { renderJSON } from "$http_render_fns/render_json.ts";
-import { ok } from "$http_fns/response/ok.ts";
+import { byMethod } from "@http/fns/by_method";
+import { byMediaType } from "@http/fns/by_media_type";
+import { ok } from "@http/fns/response/ok";
+import { html } from "@http/fns/response/html";
+import { json } from "@http/fns/response/json";
+import { prependDocType } from "@http/fns/response/prepend_doctype";
+import { renderBody } from "@http/jsx-stream";
 import hookPaths from "../hooks.json" with { type: "json" };
 
 export default byMethod({
   GET: byMediaType({
-    "text/html": mapData(asProps, renderHTML(IndexPage)),
-    "application/json": mapData(asProps, renderJSON()),
+    "text/html": (req) =>
+      html(prependDocType(renderBody(<IndexPage {...asProps(req)} />))),
+    "application/json": (req) => json(asProps(req)),
     "text/plain": (_req) => ok("Webhook Server Active"),
   }),
 });
