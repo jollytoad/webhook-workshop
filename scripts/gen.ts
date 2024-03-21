@@ -1,4 +1,4 @@
-import { generateRoutesModule } from "$http_fns/generate_routes_module.ts";
+import { generateRoutesModule } from "@http/fns/generate_routes_module";
 import { generateHooksIndex } from "./gen_hooks_index.ts";
 
 function generateRoutes() {
@@ -7,7 +7,8 @@ function generateRoutes() {
   return generateRoutesModule({
     fileRootUrl: import.meta.resolve("../app/routes"),
     moduleOutUrl: import.meta.resolve("../app/routes.ts"),
-    httpFns: "$http_fns/",
+    httpFns: "@http/fns/",
+    jsr: true,
     moduleImports: "static",
     verbose: true,
   });

@@ -1,4 +1,4 @@
-import { ok } from "$http_fns/response/ok.ts";
+import { ok } from "@http/fns/response/ok";
 import { byWebhookEvent } from "../../lib/by_webhook_event.ts";
 import { kv } from "../../lib/kv.ts";
 

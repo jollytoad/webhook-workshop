@@ -1,7 +1,7 @@
 import { byWebhookEvent } from "../../lib/by_webhook_event.ts";
 import { background } from "../../lib/background.ts";
-import { delay } from "$std/async/delay.ts";
-import { ok } from "$http_fns/response/ok.ts";
+import { delay } from "@std/async/delay";
+import { ok } from "@http/fns/response/ok";
 
 const DURATION = 30;
 

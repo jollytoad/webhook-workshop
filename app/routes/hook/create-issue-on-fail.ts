@@ -1,5 +1,5 @@
-import { ok } from "$http_fns/response/ok.ts";
-import { badGateway } from "$http_fns/response/bad_gateway.ts";
+import { ok } from "@http/fns/response/ok";
+import { badGateway } from "@http/fns/response/bad_gateway";
 import { byWebhookEvent } from "../../lib/by_webhook_event.ts";
 import OpenAI from "openai";
 import { background } from "../../lib/background.ts";
