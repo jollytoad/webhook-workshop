@@ -325,11 +325,10 @@ along your journey:
 
 This project makes use of a number of Deno libraries and npm packages..
 
-- [Deno Standard Library](https://deno.land/std)
-- [HTTP Functions](https://deno.land/x/http_fns)
-- [HTTP Rendering Functions](https://deno.land/x/http_fns)
-- [JSX Streaming](https://deno.land/x/jsx_stream)
-- [OpenAI API](https://deno.land/x/openai)
+- [Deno Standard Library](https://jsr.io/@std)
+- [HTTP Functions](https://jsr.io/@http/fns)
+- [JSX Streaming](https://jsr.io/@http/jsx-stream)
+- [OpenAI API](https://github.com/openai/openai-node)
 - [GitLab Event Types](https://github.com/lawvs/gitlab-event-types)
 
 ## GitLab Hackathon

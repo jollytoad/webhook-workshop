@@ -1,5 +1,5 @@
 import handler from "./handler.ts";
-import init from "$http_fns/hosting/init_deploy.ts";
+import init from "@http/fns/hosting/init_deploy";
 import interceptors from "./interceptors.ts";
 import { initBackgroundRequestListener } from "./lib/background.ts";
 import { initKv } from "./lib/kv.ts";

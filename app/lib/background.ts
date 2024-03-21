@@ -1,6 +1,6 @@
-import type { Awaitable } from "$http_fns/types.ts";
-import { accepted } from "$http_fns/response/accepted.ts";
-import { badRequest } from "$http_fns/response/bad_request.ts";
+import type { Awaitable } from "@http/fns/types";
+import { accepted } from "@http/fns/response/accepted";
+import { badRequest } from "@http/fns/response/bad_request";
 import { kv } from "./kv.ts";
 
 export interface BackgroundRequest {
