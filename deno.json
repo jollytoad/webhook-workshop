@@ -24,9 +24,13 @@
   },
   "imports": {
     "@http/fns": "jsr:@http/fns@^0.6.4",
+    "@http/fns/": "jsr:/@http/fns@^0.6.4/",
     "@http/jsx-stream": "jsr:@http/jsx-stream@^0.1.1",
+    "@http/jsx-stream/": "jsr:/@http/jsx-stream@^0.1.1/",
     "@std/async": "jsr:@std/async@^0.219.1",
+    "@std/async/": "jsr:/@std/async@^0.219.1/",
     "@std/encoding": "jsr:@std/encoding@^0.219.1",
+    "@std/encoding/": "jsr:/@std/encoding@^0.219.1/",
     "gitlab-event-types": "npm:gitlab-event-types",
     "openai": "npm:openai"
   },
