@@ -1,4 +1,4 @@
-import { ok } from "@http/fns/response/ok";
+import { ok } from "@http/response/ok";
 import { byWebhookEvent } from "../../lib/by_webhook_event.ts";
 
 export default byWebhookEvent("*", (req, eventData) => {

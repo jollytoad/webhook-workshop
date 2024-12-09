@@ -7,7 +7,7 @@ stages:
   - deploy
 
 default:
-  image: denoland/deno:alpine
+  image: denoland/deno:alpine-2.1.3
 
 check-job:
   stage: check

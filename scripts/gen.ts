@@ -1,4 +1,7 @@
-import { generateRoutesModule } from "@http/fns/generate_routes_module";
+#!/usr/bin/env -S deno run --allow-net --allow-env --allow-read --allow-write=./app/routes.ts,./app/hooks.json
+
+import { generateRoutesModule } from "@http/generate/generate-routes-module";
+import { dprintFormatModule } from "@http/generate/dprint-format-module";
 import { generateHooksIndex } from "./gen_hooks_index.ts";
 
 function generateRoutes() {
@@ -7,9 +10,8 @@ function generateRoutes() {
   return generateRoutesModule({
     fileRootUrl: import.meta.resolve("../app/routes"),
     moduleOutUrl: import.meta.resolve("../app/routes.ts"),
-    httpFns: "@http/fns/",
-    jsr: true,
     moduleImports: "static",
+    formatModule: dprintFormatModule(),
     verbose: true,
   });
 }

@@ -1,5 +1,7 @@
-import { discoverRoutes } from "@http/fns/discover_routes";
-import { asURLPatterns } from "@http/fns/as_url_pattern";
+#!/usr/bin/env -S deno run --allow-net --allow-env --allow-read --allow-write=./app/hooks.json
+
+import { discoverRoutes } from "@http/discovery/discover-routes";
+import { asURLPatterns } from "@http/route/as-url-pattern";
 
 export async function generateHooksIndex() {
   console.debug("\nGenerating hooks index");

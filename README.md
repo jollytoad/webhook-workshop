@@ -301,7 +301,7 @@ including:
 
 - `deploy` - to manually deploy to Deno Deploy (this is used from the CI/CD
   pipeline)
-- `check` - to format, lint and typescript the project
+- `ok` - to format, lint and typescript the project
 - `lock` - to delete and recreate a fresh [deno.lock](./deno.lock) file
 - `token` - to generate a random token that can be used as your webhook secret
   token

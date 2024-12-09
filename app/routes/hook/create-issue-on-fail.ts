@@ -1,5 +1,5 @@
-import { ok } from "@http/fns/response/ok";
-import { badGateway } from "@http/fns/response/bad_gateway";
+import { ok } from "@http/response/ok";
+import { badGateway } from "@http/response/bad-gateway";
 import { byWebhookEvent } from "../../lib/by_webhook_event.ts";
 import OpenAI from "openai";
 import { background } from "../../lib/background.ts";

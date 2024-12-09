@@ -3,10 +3,11 @@
     "kv"
   ],
   "tasks": {
-    "gen": "deno run --config=deno.json --allow-net --allow-read=app/routes,app/routes.ts,app/hooks.json --allow-write=app/routes.ts,app/hooks.json scripts/gen.ts",
-    "start": "deno run --allow-read --allow-write=app/routes.ts,app/hooks.json --allow-net --allow-env --env --watch scripts/dev.ts",
-    "deploy": "deno run --allow-read --allow-write --allow-env --allow-net --allow-run --allow-sys --quiet https://deno.land/x/deploy/deployctl.ts deploy",
-    "check": "deno fmt && deno lint && deno check **/*.ts",
+    "gen": "./scripts/gen.ts",
+    "start": "./scripts/dev.ts",
+    "deploy": "deno run --allow-sys --allow-net --allow-read --allow-write --allow-env jsr:@deno/deployctl deploy",
+    "check": "deno check **/*.ts **/*.tsx",
+    "ok": "deno fmt && deno lint && deno task check",
     "lock": "rm -f deno.lock && deno check app/main.ts scripts/*.ts",
     "token": "deno run scripts/token.ts"
   },
@@ -23,16 +24,20 @@
     ]
   },
   "imports": {
-    "@http/fns": "jsr:@http/fns@^0.6.4",
-    "@http/fns/": "jsr:/@http/fns@^0.6.4/",
-    "@http/jsx-stream": "jsr:@http/jsx-stream@^0.1.1",
-    "@http/jsx-stream/": "jsr:/@http/jsx-stream@^0.1.1/",
-    "@std/async": "jsr:@std/async@^0.219.1",
-    "@std/async/": "jsr:/@std/async@^0.219.1/",
-    "@std/encoding": "jsr:@std/encoding@^0.219.1",
-    "@std/encoding/": "jsr:/@std/encoding@^0.219.1/",
-    "gitlab-event-types": "npm:gitlab-event-types",
-    "openai": "npm:openai"
+    "@http/discovery": "jsr:@http/discovery@^0.24.0",
+    "@http/generate": "jsr:@http/generate@^0.24.0",
+    "@http/host-deno-deploy": "jsr:@http/host-deno-deploy@^0.24.0",
+    "@http/host-deno-local": "jsr:@http/host-deno-local@^0.24.0",
+    "@http/html-stream": "jsr:@http/html-stream@^0.7.0",
+    "@http/interceptor": "jsr:@http/interceptor@^0.24.0",
+    "@http/jsx-stream": "jsr:@http/jsx-stream@^0.7.0",
+    "@http/request": "jsr:@http/request@^0.24.0",
+    "@http/response": "jsr:@http/response@^0.24.0",
+    "@http/route": "jsr:@http/route@^0.24.0",
+    "@std/async": "jsr:@std/async@^1.0.9",
+    "@std/encoding": "jsr:@std/encoding@^1.0.5",
+    "gitlab-event-types": "npm:gitlab-event-types@^2.1.0",
+    "openai": "npm:openai@^4.76.0"
   },
   "deploy": {
     "project": "webhook-workshop",

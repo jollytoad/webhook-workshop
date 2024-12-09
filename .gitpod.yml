@@ -2,7 +2,7 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - command: 'deno task start'
+  - command: "deno task start"
 
 ports:
   - name: HTTP Server

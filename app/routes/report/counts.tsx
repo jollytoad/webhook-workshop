@@ -1,13 +1,11 @@
-import { byMethod } from "@http/fns/by_method";
-import { byMediaType } from "@http/fns/by_media_type";
-import { html } from "@http/fns/response/html";
-import { prependDocType } from "@http/fns/response/prepend_doctype";
-import { renderBody } from "@http/jsx-stream";
+import { byMethod } from "@http/route/by-method";
+import { byMediaType } from "@http/route/by-media-type";
+import { renderHtmlResponse } from "@http/html-stream/render-html-response";
 import { kv } from "../../lib/kv.ts";
 
 export default byMethod({
   GET: byMediaType({
-    "text/html": () => html(prependDocType(renderBody(<Report />))),
+    "text/html": () => renderHtmlResponse(<Report />),
   }),
 });
 

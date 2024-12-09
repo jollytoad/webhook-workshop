@@ -1,9 +1,9 @@
-import { cascade } from "@http/fns/cascade";
-import { byPattern } from "@http/fns/by_pattern";
+import { cascade } from "@http/route/cascade";
+import { byPattern } from "@http/route/by-pattern";
 import routes from "./routes.ts";
 import index from "./routes/index.tsx";
-import { interceptResponse } from "@http/fns/intercept";
-import { methodNotAllowed } from "@http/fns/response/method_not_allowed";
+import { interceptResponse } from "@http/interceptor/intercept-response";
+import { methodNotAllowed } from "@http/response/method-not-allowed";
 
 /**
  * This is the main request handler of the server

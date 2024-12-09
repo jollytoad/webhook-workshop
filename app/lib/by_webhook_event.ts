@@ -1,6 +1,6 @@
-import { byMethod } from "@http/fns/by_method";
-import { badRequest } from "@http/fns/response/bad_request";
-import type { Awaitable } from "@http/fns/types";
+import { byMethod } from "@http/route/by-method";
+import { badRequest } from "@http/response/bad-request";
+import type { Awaitable } from "@http/route/types";
 import type {
   BuildEvent,
   DeploymentEvent,
