@@ -1,271 +1,198 @@
 {
-  "version": "4",
+  "version": "5",
   "specifiers": {
     "jsr:@dprint/formatter@~0.4.1": "0.4.1",
-    "jsr:@http/discovery@0.24": "0.24.0",
-    "jsr:@http/generate@0.24": "0.24.0",
-    "jsr:@http/host-deno-deploy@0.24": "0.24.0",
-    "jsr:@http/host-deno-local@0.24": "0.24.0",
-    "jsr:@http/html-stream@0.7": "0.7.0",
-    "jsr:@http/html-stream@0.7.0": "0.7.0",
-    "jsr:@http/interceptor@0.24": "0.24.0",
-    "jsr:@http/jsx-stream@0.7": "0.7.0",
-    "jsr:@http/request@0.24": "0.24.0",
-    "jsr:@http/response@0.24": "0.24.0",
-    "jsr:@http/route@0.24": "0.24.0",
-    "jsr:@http/token-stream@0.7.0": "0.7.0",
-    "jsr:@std/async@^1.0.9": "1.0.9",
-    "jsr:@std/encoding@^1.0.5": "1.0.5",
-    "jsr:@std/html@^1.0.3": "1.0.3",
-    "jsr:@std/http@^1.0.6": "1.0.12",
-    "jsr:@std/media-types@^1.0.3": "1.1.0",
-    "jsr:@std/net@^1.0.4": "1.0.4",
-    "jsr:@std/path@^1.0.6": "1.0.8",
-    "npm:@types/node@*": "22.5.4",
-    "npm:gitlab-event-types@^2.1.0": "2.1.0",
-    "npm:openai@^4.76.0": "4.76.0"
+    "jsr:@http/discovery@0.26": "0.26.0",
+    "jsr:@http/fs@0.26": "0.26.0",
+    "jsr:@http/generate@~0.26.1": "0.26.1",
+    "jsr:@http/host-deno-deploy@0.26": "0.26.0",
+    "jsr:@http/host-deno-local@0.26": "0.26.0",
+    "jsr:@http/html-stream@0.8": "0.8.0",
+    "jsr:@http/html-stream@0.8.0": "0.8.0",
+    "jsr:@http/interceptor@0.26": "0.26.0",
+    "jsr:@http/jsx-stream@~0.8.1": "0.8.1",
+    "jsr:@http/request@0.26": "0.26.0",
+    "jsr:@http/response@0.26": "0.26.0",
+    "jsr:@http/route@0.26": "0.26.0",
+    "jsr:@http/token-stream@0.8.0": "0.8.0",
+    "jsr:@std/async@^1.0.14": "1.0.14",
+    "jsr:@std/collections@^1.0.10": "1.1.3",
+    "jsr:@std/encoding@^1.0.10": "1.0.10",
+    "jsr:@std/html@^1.0.3": "1.0.4",
+    "jsr:@std/http@^1.0.13": "1.0.20",
+    "jsr:@std/internal@^1.0.10": "1.0.10",
+    "jsr:@std/media-types@^1.1.0": "1.1.0",
+    "jsr:@std/net@^1.0.4": "1.0.6",
+    "jsr:@std/path@^1.0.8": "1.1.2",
+    "jsr:@std/streams@^1.0.9": "1.0.12",
+    "npm:@types/node@*": "24.2.0",
+    "npm:gitlab-event-types@^3.0.1": "3.0.1",
+    "npm:openai@^5.19.1": "5.19.1"
   },
   "jsr": {
     "@dprint/formatter@0.4.1": {
       "integrity": "96449ab83aa9f72df98caa5030d3f4a921c5c29d9b0e0d0da83d79e2024a9637"
     },
-    "@http/discovery@0.24.0": {
-      "integrity": "7023918e1d49306f87fca0474270e55533ce7afaf3d33ab747085ec23e3267b9",
+    "@http/discovery@0.26.0": {
+      "integrity": "98096ad0c43d7dff5a5bf851e3afd107b1aafcd0a959c9036ceb0ffcbc5d98b0",
       "dependencies": [
         "jsr:@http/route",
         "jsr:@std/path"
       ]
     },
-    "@http/generate@0.24.0": {
-      "integrity": "88171d2d2583aa727efbca6fa1c91b244113aa66756c215cc623899bbaf5cdbe",
+    "@http/fs@0.26.0": {
+      "integrity": "064309d1741dabb7c8e4d351a1b409a7e4a9c91bfe06be8a310d94c677a55413",
+      "dependencies": [
+        "jsr:@http/response",
+        "jsr:@std/http",
+        "jsr:@std/media-types",
+        "jsr:@std/path",
+        "jsr:@std/streams"
+      ]
+    },
+    "@http/generate@0.26.1": {
+      "integrity": "ed4433fe4985004105f4f454befbac12fa7c47af909f8470d0e059579948a348",
       "dependencies": [
         "jsr:@dprint/formatter",
         "jsr:@http/discovery",
+        "jsr:@http/route",
         "jsr:@std/path"
       ]
     },
-    "@http/host-deno-deploy@0.24.0": {
-      "integrity": "ef4793712469bd2cce1d93f71af65d51a7ec1ca04b4e058495ca6f9f6037a328",
+    "@http/host-deno-deploy@0.26.0": {
+      "integrity": "fc20935be17c57a36764e08229577e26f96b52dd4a1fb55cf78c54201a0f782b",
       "dependencies": [
         "jsr:@http/interceptor",
-        "jsr:@http/route"
+        "jsr:@http/route",
+        "jsr:@std/http"
       ]
     },
-    "@http/host-deno-local@0.24.0": {
-      "integrity": "99e5eac3d5d57a4f0aafe6ca40bbdba51cfb08c286fdc9f2bda8eda85e16d796",
+    "@http/host-deno-local@0.26.0": {
+      "integrity": "83c47b936d0c69adb6c340ccf50aee04f4aba6ba56a7fc7feae461d63a5675c7",
       "dependencies": [
         "jsr:@http/interceptor",
         "jsr:@http/route",
         "jsr:@std/net"
       ]
     },
-    "@http/html-stream@0.7.0": {
-      "integrity": "0fb05a364ed54bd33a3a643af7e632219a6cfcb0692f5c59dcce22a1ac31afb7",
+    "@http/html-stream@0.8.0": {
+      "integrity": "057ea639d69d713ea2ac927d4a9cd70ca8d92a322d07f9a6103c6f97f55aea02",
       "dependencies": [
         "jsr:@http/token-stream",
         "jsr:@std/html"
       ]
     },
-    "@http/interceptor@0.24.0": {
-      "integrity": "9f1fee3b0571321d96e79dded8e01db21113f8805ec5090e060ab1075ef6c0b4",
+    "@http/interceptor@0.26.0": {
+      "integrity": "b630951e90592c6d88fb3c0263400816988d2a2faf8538d4130ba25a949d4a2f",
       "dependencies": [
         "jsr:@http/response",
         "jsr:@http/route"
       ]
     },
-    "@http/jsx-stream@0.7.0": {
-      "integrity": "7b9c2abc09d0ffff9402dab36b1319d1481ce7d19a7c78144296d4d437296b5f",
+    "@http/jsx-stream@0.8.1": {
+      "integrity": "1f3fefb21776809f50930052b42c3594cda546fa6d11f146064025ea488905e8",
       "dependencies": [
-        "jsr:@http/html-stream@0.7.0",
+        "jsr:@http/html-stream@0.8.0",
         "jsr:@http/token-stream"
       ]
     },
-    "@http/request@0.24.0": {
-      "integrity": "7bcd44297962601a92b7a3c678e658d0369530263caf80343c41be5a56071169"
-    },
-    "@http/response@0.24.0": {
-      "integrity": "8d9e69bb1c9701a4b30f5dfe68c3f0a1fd794cede3d69d0c058ac9422a0b340f"
-    },
-    "@http/route@0.24.0": {
-      "integrity": "de1315544e1197dd73005c330fe4fe3e6bb5af2babad76321bc605d03ebcc80d",
+    "@http/request@0.26.0": {
+      "integrity": "3770c31e0fcdf51bb15f28a99a8d60b5755a33c8f5c4d7cac7fc7f38dea40c6f",
       "dependencies": [
+        "jsr:@http/response"
+      ]
+    },
+    "@http/response@0.26.0": {
+      "integrity": "c6cc23a1678584dfc1a1bd9f78dd294e59a18a65976f8529e7e93b21f9ce2820",
+      "dependencies": [
+        "jsr:@std/http"
+      ]
+    },
+    "@http/route@0.26.0": {
+      "integrity": "6158fa245ca89ab2bc145efb43846e7eb3c903f4f0e0f4dbec91a1079e2aa1eb",
+      "dependencies": [
+        "jsr:@http/fs",
         "jsr:@http/response",
+        "jsr:@std/collections",
         "jsr:@std/http",
         "jsr:@std/media-types",
         "jsr:@std/path"
       ]
     },
-    "@http/token-stream@0.7.0": {
-      "integrity": "165dea65ee5a1a1fce2225e1c478600c154b271ae847ce95964ea5700eed67c3"
+    "@http/token-stream@0.8.0": {
+      "integrity": "24b93aa53aad985ee41a5e058202c979ab98108a2750e739cfa53de7455eef9e"
     },
-    "@std/async@1.0.9": {
-      "integrity": "c6472fd0623b3f3daae023cdf7ca5535e1b721dfbf376562c0c12b3fb4867f91"
+    "@std/async@1.0.14": {
+      "integrity": "62e954a418652c704d37563a3e54a37d4cf0268a9dcaeac1660cc652880b5326"
     },
-    "@std/encoding@1.0.5": {
-      "integrity": "ecf363d4fc25bd85bd915ff6733a7e79b67e0e7806334af15f4645c569fefc04"
+    "@std/collections@1.1.3": {
+      "integrity": "bf8b0818886df6a32b64c7d3b037a425111f28278d69fd0995aeb62777c986b0"
     },
-    "@std/html@1.0.3": {
-      "integrity": "7a0ac35e050431fb49d44e61c8b8aac1ebd55937e0dc9ec6409aa4bab39a7988"
+    "@std/encoding@1.0.10": {
+      "integrity": "8783c6384a2d13abd5e9e87a7ae0520a30e9f56aeeaa3bdf910a3eaaf5c811a1"
     },
-    "@std/http@1.0.12": {
-      "integrity": "85246d8bfe9c8e2538518725b158bdc31f616e0869255f4a8d9e3de919cab2aa"
+    "@std/html@1.0.4": {
+      "integrity": "eff3497c08164e6ada49b7f81a28b5108087033823153d065e3f89467dd3d50e"
+    },
+    "@std/http@1.0.20": {
+      "integrity": "b5cc33fc001bccce65ed4c51815668c9891c69ccd908295997e983d8f56070a1",
+      "dependencies": [
+        "jsr:@std/encoding"
+      ]
+    },
+    "@std/internal@1.0.10": {
+      "integrity": "e3be62ce42cab0e177c27698e5d9800122f67b766a0bea6ca4867886cbde8cf7"
     },
     "@std/media-types@1.1.0": {
       "integrity": "c9d093f0c05c3512932b330e3cc1fe1d627b301db33a4c2c2185c02471d6eaa4"
     },
-    "@std/net@1.0.4": {
-      "integrity": "2f403b455ebbccf83d8a027d29c5a9e3a2452fea39bb2da7f2c04af09c8bc852"
+    "@std/net@1.0.6": {
+      "integrity": "110735f93e95bb9feb95790a8b1d1bf69ec0dc74f3f97a00a76ea5efea25500c"
     },
-    "@std/path@1.0.8": {
-      "integrity": "548fa456bb6a04d3c1a1e7477986b6cffbce95102d0bb447c67c4ee70e0364be"
+    "@std/path@1.1.2": {
+      "integrity": "c0b13b97dfe06546d5e16bf3966b1cadf92e1cc83e56ba5476ad8b498d9e3038",
+      "dependencies": [
+        "jsr:@std/internal"
+      ]
+    },
+    "@std/streams@1.0.12": {
+      "integrity": "ae925fa1dc459b1abf5cbaa28cc5c7b0485853af3b2a384b0dc22d86e59dfbf4"
     }
   },
   "npm": {
-    "@types/node-fetch@2.6.12": {
-      "integrity": "sha512-8nneRWKCg3rMtF69nLQJnOYUcbafYeFSjqkw3jCRLsqkWFlHaoQrr5mXmofFGOx3DKn7UfmBMyov8ySvLRVldA==",
+    "@types/node@24.2.0": {
+      "integrity": "sha512-3xyG3pMCq3oYCNg7/ZP+E1ooTaGB4cG8JWRsqqOYQdbWNY4zbaV0Ennrd7stjiJEFZCaybcIgpTjJWHRfBSIDw==",
       "dependencies": [
-        "@types/node@22.5.4",
-        "form-data"
+        "undici-types"
       ]
     },
-    "@types/node@18.19.67": {
-      "integrity": "sha512-wI8uHusga+0ZugNp0Ol/3BqQfEcCCNfojtO6Oou9iVNGPTL6QNSdnUdqq85fRgIorLhLMuPIKpsN98QE9Nh+KQ==",
-      "dependencies": [
-        "undici-types@5.26.5"
-      ]
+    "gitlab-event-types@3.0.1": {
+      "integrity": "sha512-28zotk2FJSvJ33u6AbkULz5NkaPWEqKpKS+e8L14qmzTi8rCVEAVLk3xAMVzRQR6hDuhOYuzhiGM/DHmkSqqBQ=="
     },
-    "@types/node@22.5.4": {
-      "integrity": "sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==",
-      "dependencies": [
-        "undici-types@6.19.8"
-      ]
+    "openai@5.19.1": {
+      "integrity": "sha512-zSqnUF7oR9ksmpusKkpUgkNrj8Sl57U+OyzO8jzc7LUjTMg4DRfR3uCm+EIMA6iw06sRPNp4t7ojp3sCpEUZRQ==",
+      "bin": true
     },
-    "abort-controller@3.0.0": {
-      "integrity": "sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==",
-      "dependencies": [
-        "event-target-shim"
-      ]
-    },
-    "agentkeepalive@4.5.0": {
-      "integrity": "sha512-5GG/5IbQQpC9FpkRGsSvZI5QYeSCzlJHdpBQntCsuTOxhKD8lqKhrleg2Yi7yvMIf82Ycmmqln9U8V9qwEiJew==",
-      "dependencies": [
-        "humanize-ms"
-      ]
-    },
-    "asynckit@0.4.0": {
-      "integrity": "sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q=="
-    },
-    "combined-stream@1.0.8": {
-      "integrity": "sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==",
-      "dependencies": [
-        "delayed-stream"
-      ]
-    },
-    "delayed-stream@1.0.0": {
-      "integrity": "sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ=="
-    },
-    "event-target-shim@5.0.1": {
-      "integrity": "sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ=="
-    },
-    "form-data-encoder@1.7.2": {
-      "integrity": "sha512-qfqtYan3rxrnCk1VYaA4H+Ms9xdpPqvLZa6xmMgFvhO32x7/3J/ExcTd6qpxM0vH2GdMI+poehyBZvqfMTto8A=="
-    },
-    "form-data@4.0.1": {
-      "integrity": "sha512-tzN8e4TX8+kkxGPK8D5u0FNmjPUjw3lwC9lSLxxoB/+GtsJG91CO8bSWy73APlgAZzZbXEYZJuxjkHH2w+Ezhw==",
-      "dependencies": [
-        "asynckit",
-        "combined-stream",
-        "mime-types"
-      ]
-    },
-    "formdata-node@4.4.1": {
-      "integrity": "sha512-0iirZp3uVDjVGt9p49aTaqjk84TrglENEDuqfdlZQ1roC9CWlPk6Avf8EEnZNcAqPonwkG35x4n3ww/1THYAeQ==",
-      "dependencies": [
-        "node-domexception",
-        "web-streams-polyfill"
-      ]
-    },
-    "gitlab-event-types@2.1.0": {
-      "integrity": "sha512-5LKlbHsfMTJUEVuPXoTmfgjpwA6siuUVyYMEXYNQ2M10a8z9W4nask6iyKRU6CIr9zgfkGf9kbnSlp5otky/5A=="
-    },
-    "humanize-ms@1.2.1": {
-      "integrity": "sha512-Fl70vYtsAFb/C06PTS9dZBo7ihau+Tu/DNCk/OyHhea07S+aeMWpFFkUaXRa8fI+ScZbEI8dfSxwY7gxZ9SAVQ==",
-      "dependencies": [
-        "ms"
-      ]
-    },
-    "mime-db@1.52.0": {
-      "integrity": "sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg=="
-    },
-    "mime-types@2.1.35": {
-      "integrity": "sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==",
-      "dependencies": [
-        "mime-db"
-      ]
-    },
-    "ms@2.1.3": {
-      "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
-    },
-    "node-domexception@1.0.0": {
-      "integrity": "sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ=="
-    },
-    "node-fetch@2.7.0": {
-      "integrity": "sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==",
-      "dependencies": [
-        "whatwg-url"
-      ]
-    },
-    "openai@4.76.0": {
-      "integrity": "sha512-QBGIetjX1C9xDp5XGa/3mPnfKI9BgAe2xHQX6PmO98wuW9qQaurBaumcYptQWc9LHZZq7cH/Y1Rjnsr6uUDdVw==",
-      "dependencies": [
-        "@types/node@18.19.67",
-        "@types/node-fetch",
-        "abort-controller",
-        "agentkeepalive",
-        "form-data-encoder",
-        "formdata-node",
-        "node-fetch"
-      ]
-    },
-    "tr46@0.0.3": {
-      "integrity": "sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw=="
-    },
-    "undici-types@5.26.5": {
-      "integrity": "sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA=="
-    },
-    "undici-types@6.19.8": {
-      "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
-    },
-    "web-streams-polyfill@4.0.0-beta.3": {
-      "integrity": "sha512-QW95TCTaHmsYfHDybGMwO5IJIM93I/6vTRk+daHTWFPhwh+C8Cg7j7XyKrwrj8Ib6vYXe0ocYNrmzY4xAAN6ug=="
-    },
-    "webidl-conversions@3.0.1": {
-      "integrity": "sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ=="
-    },
-    "whatwg-url@5.0.0": {
-      "integrity": "sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==",
-      "dependencies": [
-        "tr46",
-        "webidl-conversions"
-      ]
+    "undici-types@7.10.0": {
+      "integrity": "sha512-t5Fy/nfn+14LuOc2KNYg75vZqClpAiqscVvMygNnlsHBFpSXdJaYtXMcdNLpl/Qvc3P2cB3s6lOV51nqsFq4ag=="
     }
   },
   "workspace": {
     "dependencies": [
-      "jsr:@http/discovery@0.24",
-      "jsr:@http/generate@0.24",
-      "jsr:@http/host-deno-deploy@0.24",
-      "jsr:@http/host-deno-local@0.24",
-      "jsr:@http/html-stream@0.7",
-      "jsr:@http/interceptor@0.24",
-      "jsr:@http/jsx-stream@0.7",
-      "jsr:@http/request@0.24",
-      "jsr:@http/response@0.24",
-      "jsr:@http/route@0.24",
-      "jsr:@std/async@^1.0.9",
-      "jsr:@std/encoding@^1.0.5",
-      "npm:gitlab-event-types@^2.1.0",
-      "npm:openai@^4.76.0"
+      "jsr:@http/discovery@0.26",
+      "jsr:@http/generate@~0.26.1",
+      "jsr:@http/host-deno-deploy@0.26",
+      "jsr:@http/host-deno-local@0.26",
+      "jsr:@http/html-stream@0.8",
+      "jsr:@http/interceptor@0.26",
+      "jsr:@http/jsx-stream@~0.8.1",
+      "jsr:@http/request@0.26",
+      "jsr:@http/response@0.26",
+      "jsr:@http/route@0.26",
+      "jsr:@std/async@^1.0.14",
+      "jsr:@std/encoding@^1.0.10",
+      "npm:gitlab-event-types@^3.0.1",
+      "npm:openai@^5.19.1"
     ]
   }
 }

@@ -1,5 +1,6 @@
 [
   "/hook/slow",
+  "/hook/raw",
   "/hook/queue",
   "/hook/log",
   "/hook/create-issue-on-fail",

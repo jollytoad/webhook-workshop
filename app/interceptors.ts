@@ -1,6 +1,7 @@
 import type { Interceptors } from "@http/interceptor/types";
 import { verifyHeader } from "@http/interceptor/verify-header";
 import { whenPattern } from "@http/interceptor/when-pattern";
+import { applyForwardedHeaders } from "@http/interceptor/apply-forwarded-headers";
 
 const TOKEN_VAR = "GITLAB_WEBHOOK_TOKEN";
 const token = Deno.env.get(TOKEN_VAR);
@@ -16,6 +17,7 @@ if (token) {
 
 export default [{
   request: [
+    applyForwardedHeaders,
     whenPattern(
       "/hook/*",
       verifyHeader({
